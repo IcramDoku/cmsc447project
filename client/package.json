@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://echen9870.github.io/cmsc447project",
+  "homepage": "https://icramdoku.github.io/cmsc447project",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

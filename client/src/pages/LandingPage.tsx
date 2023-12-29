@@ -27,7 +27,7 @@ const LandingPage = ({ onLogin }: Props) => {
       style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url(${backgroundImage})`, backgroundSize: 'cover' }}
     >
       <header className=" text-center py-4">
-        <h1 className="text-2xl font-bold">TaskMeister</h1>
+        <h1 className="text-2xl font-bold"></h1>
       </header>
 
       <section className="container mx-auto flex justify-center items-center my-8">
