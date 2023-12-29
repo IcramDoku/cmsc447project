@@ -99,20 +99,20 @@ const TaskGroup = ({ username }: Props) => {
     try {
       //Get the tasks
       const taskResponse = await Axios.get(
-        `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/task/get_task_group/${groupID}`
+        `https://cmsc447project.vercel.app/task/get_task_group/${groupID}`
       );
       const tasks = taskResponse.data;
       console.log(sessionStorage.getItem("currentGroupID"), "above members");
       //Get the members
       const memberResponse = await Axios.get(
-        `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/group/get_group_members/${groupID}`
+        `https://cmsc447project.vercel.app/group/get_group_members/${groupID}`
       );
       const members = memberResponse.data;
       // Check if the user is one of the members
       const isMember = members.includes(username);
       // Check if the user is the owner
       const response = await Axios.get(
-        `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/group/check_owner/${username}/${groupID}`
+        `https://cmsc447project.vercel.app/group/check_owner/${username}/${groupID}`
       );
       await getListOfGroupIDs();
       if (isMember) {
@@ -142,7 +142,7 @@ const TaskGroup = ({ username }: Props) => {
   const getListOfGroupIDs = async () => {
     try {
       const response = await Axios.get(
-        `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/group/get_groups/${username}`
+        `https://cmsc447project.vercel.app/group/get_groups/${username}`
       );
       setListOfGroup(response.data);
     } catch (error) {
@@ -165,7 +165,7 @@ const TaskGroup = ({ username }: Props) => {
   
       try {
         const response = await Axios.post(
-          "https://todolist-taskmeister-78653fbaf01e.herokuapp.com/group/create_group",
+          "https://cmsc447project.vercel.app/group/create_group",
           {
             name: groupName,
             members,
@@ -190,7 +190,7 @@ const TaskGroup = ({ username }: Props) => {
     if (isConfirmed) {
       try {
         const response = await Axios.delete(
-          `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/group/delete_group/${groupID}`
+          `https://cmsc447project.vercel.app/group/delete_group/${groupID}`
         );
         console.log(response);
         await getListOfGroupIDs();
@@ -213,7 +213,7 @@ const TaskGroup = ({ username }: Props) => {
   ) => {
     try {
       const response = await Axios.put(
-        `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/group/edit_group_name/${groupID}/${groupNewName}`
+        `https://cmsc447project.vercel.app/group/edit_group_name/${groupID}/${groupNewName}`
       );
       console.log(response);
       await getListOfGroupIDs();
@@ -226,7 +226,7 @@ const TaskGroup = ({ username }: Props) => {
   const handleRefreshTask = async () => {
     try {
       const taskResponse = await Axios.get(
-        `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/task/get_task_group/${currentGroupInfo.groupID}`
+        `https://cmsc447project.vercel.app/task/get_task_group/${currentGroupInfo.groupID}`
       );
       const tasks = taskResponse.data;
       setCurrentGroupInfo((prevGroupInfo) => ({
@@ -242,7 +242,7 @@ const TaskGroup = ({ username }: Props) => {
   const handleOnTaskAdd = async () => {
     try {
       const response = await Axios.post(
-        `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/task/create_task`,
+        `https://cmsc447project.vercel.app/task/create_task`,
         newTask
       );
       await handleRefreshTask();
@@ -256,7 +256,7 @@ const TaskGroup = ({ username }: Props) => {
   const handleAddMember = async (username: string) => {
     try {
       const response = await Axios.put(
-        `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/group/add_member/${username}/${currentGroupInfo.groupID}`
+        `https://cmsc447project.vercel.app/group/add_member/${username}/${currentGroupInfo.groupID}`
       );
 
       console.log(response);
@@ -269,7 +269,7 @@ const TaskGroup = ({ username }: Props) => {
   const handleDeleteMember = async (username: string) => {
     try {
       const response = await Axios.put(
-        `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/group/remove_member/${username}/${currentGroupInfo.groupID}`
+        `https://cmsc447project.vercel.app/group/remove_member/${username}/${currentGroupInfo.groupID}`
       );
 
       console.log(response);

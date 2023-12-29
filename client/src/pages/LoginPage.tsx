@@ -35,7 +35,7 @@ const LoginPage: React.FC<Props> = ({ onLogin }) => {
     try {
       if (isLogin) {
         const response = await Axios.post(
-          'https://todolist-taskmeister-78653fbaf01e.herokuapp.com/auth/login_user',
+          'https://cmsc447project.vercel.app/auth/login_user',
           { username, password }
         );
 
@@ -45,7 +45,7 @@ const LoginPage: React.FC<Props> = ({ onLogin }) => {
         }
       } else {
         const response = await Axios.post(
-          'https://todolist-taskmeister-78653fbaf01e.herokuapp.com/auth/create_user',
+          'https://cmsc447project.vercel.app/auth/create_user',
           { username, password, email, confirmPassword }
         );
 

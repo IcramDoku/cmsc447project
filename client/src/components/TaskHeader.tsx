@@ -28,7 +28,7 @@ const Taskheader = ({
     if (isConfirmed) {
       try {
         const response = await axios.delete(
-          `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/group/delete_all_tasks/${groupID}`
+          `https://cmsc447project.vercel.app/group/delete_all_tasks/${groupID}`
         );
         console.log(response); 
       } catch (error) {
@@ -43,7 +43,7 @@ const Taskheader = ({
     try {
       const endpoint = isFinish ? "finish_all_tasks" : "unfinish_all_tasks";
       const response = await axios.put(
-        `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/group/${endpoint}/${groupID}`
+        `https://cmsc447project.vercel.app/group/${endpoint}/${groupID}`
       );
       console.log(response);
     } catch (error) {

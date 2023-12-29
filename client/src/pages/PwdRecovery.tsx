@@ -33,7 +33,7 @@ const PwdRecovery: React.FC<PwdRecoveryProps> = ({ onCancel }) => {
       switch (currentStep) {
         case 1:
           // Step 1: Send verification code request
-          await Axios.post("https://todolist-taskmeister-78653fbaf01e.herokuapp.com/auth/password_recovery", { usernameOrEmail });
+          await Axios.post("https://cmsc447project.vercel.app/auth/password_recovery", { usernameOrEmail });
           //clear the error message so it doesn't persist after success
           setError_message("");
           setCurrentStep(2);
@@ -47,7 +47,7 @@ const PwdRecovery: React.FC<PwdRecoveryProps> = ({ onCancel }) => {
           }
 
           // Validate the verification code on the server
-          const verificationResponse = await Axios.post("https://todolist-taskmeister-78653fbaf01e.herokuapp.com/auth/validate_verification_code", {
+          const verificationResponse = await Axios.post("https://cmsc447project.vercel.app/auth/validate_verification_code", {
             usernameOrEmail,
             verificationCode,
           });
@@ -65,7 +65,7 @@ const PwdRecovery: React.FC<PwdRecoveryProps> = ({ onCancel }) => {
 
         case 3:
           // Step 3: Submit verification code and reset password
-          const response = await Axios.post("https://todolist-taskmeister-78653fbaf01e.herokuapp.com/auth/verify_and_reset_password", {
+          const response = await Axios.post("https://cmsc447project.vercel.app/auth/verify_and_reset_password", {
             usernameOrEmail,
             verificationCode,
             newPassword,

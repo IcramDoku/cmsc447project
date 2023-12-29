@@ -65,7 +65,7 @@ const Task = (task: Props) => {
   const handleEditTaskSubmit = async () => {
     try {
       const response = await Axios.put(
-        `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/task/edit_task`,
+        `https://cmsc447project.vercel.app/task/edit_task`,
         curTask
       );
       console.log(response);
@@ -80,7 +80,7 @@ const Task = (task: Props) => {
     try {
       console.log(!task.completed);
       const response = await Axios.put(
-        `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/task/toggle_finish_task/${task._id}`,
+        `https://cmsc447project.vercel.app/task/toggle_finish_task/${task._id}`,
         { completed: task.completed }
       );
       console.log(response.data);
@@ -114,7 +114,7 @@ const Task = (task: Props) => {
       if (isConfirmed) {
         try {
           const response = await Axios.delete(
-            `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/task/delete_task/${task._id}`
+            `https://cmsc447project.vercel.app/task/delete_task/${task._id}`
           );
           console.log(response);
         } catch (error) {
@@ -127,7 +127,7 @@ const Task = (task: Props) => {
     else {
       try {
         const response = await Axios.delete(
-          `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/task/delete_task/${task._id}`
+          `https://cmsc447project.vercel.app/task/delete_task/${task._id}`
         );
         console.log(response);
       } catch (error) {
@@ -147,7 +147,7 @@ const Task = (task: Props) => {
         // Assigns the user to the task
         try {
           const response = await Axios.put(
-            `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/task/add_member_to_task/${task._id}/${selectedAssignMember}`
+            `https://cmsc447project.vercel.app/task/add_member_to_task/${task._id}/${selectedAssignMember}`
           );
           console.log(response);
         } catch (error) {
@@ -157,7 +157,7 @@ const Task = (task: Props) => {
         //Unassign the user from the task
         try {
           const response = await Axios.put(
-            `https://todolist-taskmeister-78653fbaf01e.herokuapp.com/task/remove_member_to_task/${task._id}/${selectedAssignMember}`
+            `https://cmsc447project.vercel.app/task/remove_member_to_task/${task._id}/${selectedAssignMember}`
           );
           console.log(response);
         } catch (error) {

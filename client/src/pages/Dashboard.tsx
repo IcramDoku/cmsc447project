@@ -25,7 +25,7 @@ export const Dashboard = ({ onLogout, username }: Props) => {
 
   useEffect(() => {
     // Use Axios to make the API call
-    Axios.get(`https://todolist-taskmeister-78653fbaf01e.herokuapp.com/auth/get_email/${username}`)
+    Axios.get(`https://cmsc447project.vercel.app/auth/get_email/${username}`)
       .then(response => {
         // Update the state with the data from the API
         setEmail(response.data.email);
@@ -75,7 +75,7 @@ export const Dashboard = ({ onLogout, username }: Props) => {
 
     if (isConfirmed) {
       try {
-        await Axios.delete(`https://todolist-taskmeister-78653fbaf01e.herokuapp.com/auth/delete_user/${username}`);
+        await Axios.delete(`https://cmsc447project.vercel.app/auth/delete_user/${username}`);
         handleLogout();
       } catch (error) {
         console.error("Error deleting user account:", error);
