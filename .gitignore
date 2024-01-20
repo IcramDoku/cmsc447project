@@ -8,8 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules/
-# made invisible because the sandbag mail api can't be public(Api removed as soon as code pushed)
-#.env #not the issue 
+#.env
 dist
 dist-ssr
 *.local
